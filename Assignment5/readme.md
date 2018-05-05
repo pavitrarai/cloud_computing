@@ -3,7 +3,7 @@ To execute the assignment:
 cd into the directory
 
 run the command in the terminal:
-	cat <filename>.txt | python <mapper>.py | sort | python <reducer>.py 
+	cat filename.txt | python mapper_name.py | sort | python reducer_name.py 
 
 for example, to run the question 1:
 
