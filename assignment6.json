@@ -178,15 +178,129 @@ Text Search
 4. find all movies that have a synopsis that contains the word "dwarves" or "hobbit"
 5. find all movies that have a synopsis that contains the word "gold" and "dragon"
 */
+// 1
 db.movies.createIndex( { synopsis: "text" } );
 db.movies.find(
-	{ $text: { $search: "Bilbo" } }
+	{ 
+		$text: {
+			$search: "Bilbo" 
+		} 
+	}
+).pretty();
+
+// 2
+db.movies.find(
+	{ 
+		$text: { 
+			$search: "Gandalf" 
+		} 
+	}
+).pretty();
+
+// 3
+db.movies.find(
+	{ 
+		$text: { 
+			$search: "Bilbo -Gandalf" 
+		} 
+	}
+).pretty();
+
+// 4
+db.movies.find(
+	{ 
+		$text: { 
+			$search: "dwarves hobbit" 
+		} 
+	}
+).pretty();
+
+// 5
+db.movies.find(
+	{
+		$text: { 
+			$search: "\"gold\" \"dragon\""
+		}
+	}
+).pretty();
+
+/*
+Delete Documents
+1. delete the movie "Pee Wee Herman's Big Adventure"
+2. delete the movie "Avatar"
+*/
+// 1
+db.movies.remove(
+	{
+		"title": "Pee Wee Herman's Big Adventure"
+	}
 );
 
+// 2
+db.movies.remove(
+	{
+		title:"Avatar"
+	}
+);
+/*
+Relationships
+Insert the following documents into a users collection
 
+username : GoodGuyGreg
+first_name : "Good Guy"
+last_name : "Greg"
 
+username : ScumbagSteve
+full_name :
+first : "Scumbag"
+last : "Steve"
+*/
 
+db.users.insert(
+	{
+		username: "GoodGuyGreg",
+		first_name: "Good Guy",
+		last_name: "Greg"
+	}
+);
 
+db.users.insert(
+	{
+		username: "ScumbagSteve",
+		full_name:{
+			first: "Scumbag",
+			last: "Steve"
+		}
+	}
+);	
+/*
+Insert the following documents into a posts collection
+
+username : GoodGuyGreg
+title : Passes out at party
+body : Wakes up early and cleans house
+
+username : GoodGuyGreg
+title : Steals your identity
+body : Raises your credit score
+
+username : GoodGuyGreg
+title : Reports a bug in your code
+body : Sends you a Pull Request
+
+username : ScumbagSteve
+title : Borrows something
+body : Sells it
+
+username : ScumbagSteve
+title : Borrows everything
+body : The end
+
+username : ScumbagSteve
+title : Forks your repo on github
+body : Sets to private
+
+*/
 
 
 
