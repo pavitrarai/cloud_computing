@@ -305,8 +305,31 @@ body : Sets to private
 
 
 
+/*
+Insert the following documents into a comments collection
 
+username : GoodGuyGreg
+comment : Hope you got a good deal!
+post : [post_obj_id]
+where [post_obj_id] is the ObjectId of the posts document: "Borrows something"
 
+username : GoodGuyGreg
+comment : What's mine is yours!
+post : [post_obj_id]
+
+*/
+
+/*
+Querying related collections
+1. find all users
+2. find all posts
+3. find all posts that was authored by "GoodGuyGreg"
+4. find all posts that was authored by "ScumbagSteve"
+5. find all comments
+6. find all comments that was authored by "GoodGuyGreg"
+7. find all comments that was authored by "ScumbagSteve"
+8. find all comments belonging to the post "Reports a bug in your code"
+*/
 
 
 
