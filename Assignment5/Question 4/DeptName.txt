@@ -1,3 +1,4 @@
+DEPT_ID	DEPT_NAME
 A11	Finance
 B12	HR
 C13	Manufacturing
